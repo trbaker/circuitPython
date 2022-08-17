@@ -10,6 +10,7 @@ while True:
     tempf = str(data_raw)[:7]
     tempf = tempf.replace("F", "")
     tempf = tempf.replace("b'", "")
+    tempf= float(tempf)
     # print to screen (for now)
     print(tempf)
     # send data to sample ArcGIS Online service
@@ -19,8 +20,9 @@ while True:
             "controller" : "ACPE microcontroller sensor 1", \
             "lat" : 45.23434, \
             "lon": -94.2342, \
-            "temperature" : tempf, \
+            "temperature" : 111.11, \
             "humidity" : 0}}'
             }
-    x = requests.post(url, params=params)
-    time.sleep(180)       # integer is seconds to pause
+    requests.post(url, params=params)
+    time.sleep(2)       # integer is seconds to pause
+    print('  resetting....')
