@@ -7,8 +7,9 @@ ser = serial.Serial('/dev/cu.usbmodem143201', 115200, timeout=None)
 while True:
     data_raw = ser.readline()
     # next few lines just clean up the serial data
-    tempf = str(data_raw)
+    tempf = str(data_raw)[:7]
     tempf = tempf.replace("F", "")
+    tempf = tempf.replace("b'", "")
     # print to screen (for now)
     print(tempf)
     # send data to sample ArcGIS Online service
